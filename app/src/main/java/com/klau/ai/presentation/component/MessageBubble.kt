@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import com.klau.ai.domain.model.Message
 import com.klau.ai.domain.model.MessageSender
@@ -24,7 +25,7 @@ fun MessageBubble(
     modifier: Modifier = Modifier
 ) {
     val isAi = message.sender == MessageSender.AI
-    val alignment = if (isAi) Alignment.Start else Alignment.End
+    val alignment = if (isAi) Alignment.CenterStart else Alignment.CenterEnd
     val backgroundColor = if (isAi) SurfaceCard else MaterialTheme.colorScheme.primary
     val textColor = if (isAi) Ink else OnPrimary
     val shape = if (isAi) {
@@ -55,7 +56,7 @@ fun MessageBubble(
                         color = textColor
                     )
                 } else {
-// ... rest of code ...
+                    Text(
                         text = message.text,
                         style = MaterialTheme.typography.bodyLarge,
                         color = textColor

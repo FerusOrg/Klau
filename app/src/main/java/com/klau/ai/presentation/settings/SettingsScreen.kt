@@ -7,6 +7,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.klau.ai.presentation.theme.Canvas
 import com.klau.ai.presentation.theme.Muted
@@ -90,4 +91,3 @@ fun SettingItem(title: String, value: String) {
         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f))
     }
 }
-import androidx.compose.ui.graphics.Color

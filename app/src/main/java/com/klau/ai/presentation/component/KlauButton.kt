@@ -1,11 +1,13 @@
 package com.klau.ai.presentation.component
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Height
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,7 +18,6 @@ import com.klau.ai.presentation.theme.Hairline
 import com.klau.ai.presentation.theme.Ink
 import com.klau.ai.presentation.theme.OnPrimary
 import com.klau.ai.presentation.theme.Primary
-import com.klau.ai.presentation.theme.PrimaryActive
 import com.klau.ai.presentation.theme.PrimaryDisabled
 
 enum class KlauButtonVariant {
@@ -67,13 +68,17 @@ fun KlauButton(
         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 12.dp),
         elevation = null
     ) {
-// ... rest of code ...
+        if (isLoading) {
+            CircularProgressIndicator(
+                modifier = Modifier.size(20.dp),
+                color = OnPrimary,
+                strokeWidth = 2.dp
+            )
+        } else {
             Text(
                 text = text,
                 style = MaterialTheme.typography.labelLarge
             )
-        } else {
-            // TODO: Loading Spinner
         }
     }
 }
